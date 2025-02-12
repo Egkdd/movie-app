@@ -1,0 +1,46 @@
+@use "../../App.scss" as *;
+
+.home {
+  width: 90%;
+  margin: 0 auto;
+
+  .section {
+    background-color: rgba($main-dark-color, 40%);
+    border-radius: $border-radius;
+    padding-bottom: 2rem;
+  }
+
+  h1 {
+    color: $btn-color;
+    padding-top: 2rem;
+  }
+
+  .pagination {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 1rem;
+    padding: 0 1rem;
+  }
+
+  .arrowButton {
+    background-color: #76abae;
+    border: 2px solid #76abae;
+    color: $txt-color;
+    font-size: 2rem;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: transform 0.3s;
+  }
+
+  .arrowButton:hover {
+    transform: scale(1.2);
+  }
+
+  .arrowButton:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}

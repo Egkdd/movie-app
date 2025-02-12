@@ -1,0 +1,48 @@
+@use "../../App.scss" as *;
+
+.search {
+  font-size: $medium-font-size;
+
+  .searchBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  input,
+  select {
+    padding: 12px;
+    font-size: $small-font-size;
+    border: 1.5px solid var(--btn-color);
+    border-radius: $border-radius;
+    outline: none;
+    background-color: $txt-color;
+    width: 300px;
+    color: black;
+    &:focus {
+      border: 2px solid var(--btn-color);
+    }
+  }
+
+  button {
+    padding: 12px 20px;
+    font-size: $small-font-size;
+    border: none;
+    border-radius: $border-radius;
+    color: $txt-color;
+    cursor: pointer;
+    font-weight: bold;
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+
+  .searchButton {
+    background-color: $btn-color;
+  }
+
+  .clearButton {
+    background-color: #b80f0a;
+  }
+}

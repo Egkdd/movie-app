@@ -1,0 +1,99 @@
+@use "../../App.scss" as *;
+//@use "../../../breakpoints/breakpoints.scss" as *;
+
+.header {
+    width: 90%;
+    height: 5rem;
+    background-color: $main-dark-color;
+    border-radius: 0 0 $border-radius $border-radius;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .logo a {
+        margin-left: 2rem;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        text-decoration: none;
+
+        img {
+            width: 3rem;
+            height: 3rem;
+        }
+
+        h1 {
+            color: $txt-color;
+            font-size: $large-font-size;
+            font-style: italic;
+        }
+    }
+
+    .navigation {
+        list-style: none;
+        display: flex;
+        justify-content: center;
+        color: $txt-color;
+        font-size: $small-font-size;
+        gap: 1.5rem;
+        margin-right: 2rem;
+
+        li a {
+            text-decoration: none;
+            border: 1.5px solid $txt-color;
+            border-radius: $border-radius;
+            padding: 12px 20px;
+            color: $txt-color;
+            &:hover {
+                cursor: pointer;
+                background-color: $txt-color;
+                color: $main-dark-color;
+                transform: scale(1.1);
+                font-weight: 600;
+            }
+        }
+    }
+    // @include media(">phone", "<=425px") {
+    //     height: 10rem;
+    //     justify-content: center;
+    //     gap: 2rem;
+    //     img {
+    //         padding-left: 2rem;
+    //     }
+    //     h1 {
+    //         display: none;
+    //     }
+    //     .navigation {
+    //         flex-direction: column;
+    //         justify-content: space-around;
+    //         gap: 0.8rem;
+    //         li a {
+    //             border: 1px solid $txt-color;
+    //             padding: 0.1rem 1rem;
+    //             margin-left: -2rem;
+    //         }
+    //     }
+    // }
+    // @include media(">425px", "<=tablet") {
+    //     justify-content: space-between;
+    //     h1 {
+    //         display: none;
+    //     }
+    //     .navigation {
+    //         gap: 0.4rem;
+    //         li a {
+    //             border: 1px solid $txt-color;
+    //             padding: 0.5rem;
+    //         }
+    //     }
+    // }
+    // @include media(">tablet", "<desktop") {
+    //     img {
+    //         padding-left: 2rem;
+    //     }
+    //     h1 {
+    //         display: none;
+    //     }
+    // }
+}

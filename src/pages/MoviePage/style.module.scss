@@ -1,0 +1,33 @@
+@use "../../App.scss" as *;
+
+.moviePage {
+    margin: 0 auto;
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5rem;
+    margin-top: 3%;
+
+    img {
+        border-radius: $border-radius;
+    }
+
+    .description {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        text-align: left;
+
+        h2 {
+            font-size: $the-largest-font-size;
+            text-shadow: 5px 5px 5px black;
+        }
+
+        p {
+            font-size: $medium-font-size;
+            font-family: "LTVeritas";
+            text-shadow: 3px 3px 3px black;
+        }
+    }
+}

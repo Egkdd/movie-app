@@ -1,0 +1,18 @@
+@use "../../App.scss" as *;
+
+.recommendationPage {
+    width: 90%;
+    margin: 0 auto;
+    color: $txt-color;
+    text-align: center;
+
+    h1 {
+        font-size: $the-largest-font-size;
+        letter-spacing: 0.2rem;
+    }
+
+    h2 {
+        font-size: $medium-font-size;
+        letter-spacing: 0.1rem;
+    }
+}
