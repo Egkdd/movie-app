@@ -2,6 +2,12 @@ import { Link } from "react-router-dom";
 import logo from "../../assets/images/movieWhite.svg";
 import style from "./style.module.scss";
 
+const ListLink = ({ text, url }) => (
+  <li>
+    <Link to={url}>{text}</Link>
+  </li>
+);
+
 export default function Header() {
   return (
     <div className={style.header}>
@@ -12,18 +18,9 @@ export default function Header() {
         </Link>
       </div>
       <ul className={style.navigation}>
-        <li>
-          <Link to="/">Home</Link>
-        </li>
-        <li>
-          <Link to="/search">Search</Link>
-        </li>
-        <li>
-          <Link to="/recommendations">Recommendations</Link>
-        </li>
-        <li>
-          <Link to="/watch-later">Watch Later</Link>
-        </li>
+        <ListLink text="Search" url="/search" />
+        <ListLink text="Recommendations" url="/recommendations" />
+        <ListLink text="Watch Later" url="/watch-later" />
       </ul>
     </div>
   );

@@ -1,16 +1,25 @@
-@use "../breakpoints/breakpoints.scss" as *;
+$phone-size: 768px;
+$tablet-size: 1200px;
+$laptop-size: 1440px;
+$monitor-size: 1920px;
+
+$h1-phone-size: 20px;
+
+$h2-phone-size: 16px;
+$h2-tablet-size: 18px;
+$h2-laptop-size: 20px;
+$h2-monitor-size: 24px;
+
+$p-phone-size: 14px;
+$p-tablet-size: 16px;
+$p-laptop-size: 18px;
+$p-monitor-size: 22px;
 
 $main-dark-color: #222831;
 $main-bg-color: #31363f;
 
 $btn-color: #76abae;
 $txt-color: #eee;
-
-$the-largest-font-size: 2.5rem;
-$large-font-size: 36px;
-$medium-font-size: 26px;
-$small-font-size: 1.3rem;
-$rating-color: #fcd53f;
 
 $border-radius: 1rem;
 
@@ -28,67 +37,29 @@ $border-radius: 1rem;
     font-style: normal;
 }
 
-html {
-    margin: 0 auto;
+* {
+    margin: 0;
     padding: 0;
-    background-color: $main-bg-color;
-    color: $txt-color;
-    text-align: center;
-
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-        text-shadow: 2px 2px 2px black;
-        font-family: "Cinzel-Bold";
-    }
-
-    h1 {
-        font-size: $the-largest-font-size;
-    }
 }
-// @include media("<=phone") {
-//     background-color: #cbd4c2;
-//     &:before {
-//       content: "Phone viewport";
-//     }
-//   }
-//   // if the breakpoint is greater than 360px and less than or eqaul to 425px
-//   @include media(">phone", "<=425px") {
-//     background-color: grey;
-//     &:before {
-//       content: "Large phone stops at 420px";
-//     }
-//   }
 
-//   // if the screen is going to be greater than 425px and less than or eqaul to 768px
-//   @include media(">425px", "<=tablet") {
-//     background-color: #ae76a6;
-//     &:before {
-//       content: "Large phone to tablet";
-//     }
-//   }
+html {
+    background-color: $main-bg-color;
+}
 
-//   // if the screen is going to be greater than 768px and less than 1366px
-//   @include media(">tablet", "<desktop") {
-//     background-color: #a3c3d9;
-//     &:before {
-//       content: "Tablet to laptop/desktop viewport";
-//     }
-//   }
-//   // if the screen is going to be greater than or equal to 1366px
-//   @include media(">=desktop") {
-//     background-color: #f8bd7f;
-//     &:before {
-//       content: "Desktop viewport only";
-//     }
-//   }
-//   // if the screen is going to be greater than or equal to 1920px
-//   @include media(">=LGdesktop", "retina2x") {
-//     background-color: #efefef;
-//     &:before {
-//       content: "Large desktop screen";
-//     }
-//   }
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Cinzel-Bold";
+    text-align: center;
+}
+
+h1 {
+    font-size: 28px;
+    letter-spacing: 0.1rem;
+    margin-top: 1rem;
+    color: $btn-color;
+    text-shadow: 1.5px 1.5px 1.5px black;
+}

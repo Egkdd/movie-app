@@ -1,0 +1,72 @@
+@use "../../../../App.scss" as *;
+
+.description {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    h2 {
+        font-size: 28px;
+        text-shadow: 4px 4px 4px black;
+    }
+    .details {
+        margin-inline: 2rem;
+        max-width: 35rem;
+        p {
+            font-family: "LTVeritas";
+            margin-block: 0.5rem;
+            text-shadow: 1px 1px 1px black;
+        }
+    }
+}
+
+@media (max-width: $phone-size) and (orientation: portrait) {
+    .description {
+        gap: 1rem;
+        h2 {
+            font-size: $h2-laptop-size;
+            text-shadow: 2px 2px 2px black;
+        }
+        .details {
+            margin-inline: 0rem;
+            p {
+                font-size: $p-phone-size;
+            }
+        }
+    }
+}
+
+@media (min-width: $phone-size) and (max-width: $tablet-size) and (orientation: portrait) {
+    .description {
+        gap: 1rem;
+        .details {
+            p {
+                font-size: $p-tablet-size;
+            }
+        }
+    }
+}
+
+@media (min-width: $tablet-size) and (max-width: $laptop-size) {
+    .description {
+        .details {
+            p {
+                font-size: $p-laptop-size;
+            }
+        }
+    }
+}
+
+@media (min-width: $laptop-size) {
+    .description {
+        h2 {
+            font-size: 36px;
+        }
+        .details {
+            p {
+                font-size: $p-monitor-size;
+            }
+        }
+    }
+}

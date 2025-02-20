@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 import { useMovies } from "../../context/MovieContext";
+import Description from "./components/Description";
 import style from "./style.module.scss";
 
 export default function MoviePage() {
@@ -28,12 +29,6 @@ export default function MoviePage() {
     return <div>Movie not found</div>;
   }
 
-  const formattedRating = movie.vote_average.toFixed(1);
-  const genres = movie.genres.map((genre) => genre.name).join(", ");
-  const productionCountries = movie.production_countries
-    .map((country) => country.name)
-    .join(", ");
-
   return (
     <div className={style.moviePage}>
       <img
@@ -41,35 +36,7 @@ export default function MoviePage() {
         alt={movie.title}
         className={style.poster}
       />
-      <div className={style.description}>
-        <h2>{movie.title}</h2>
-        <div>
-          <p>
-            <strong>Genres:</strong> {genres}
-          </p>
-          <p>
-            <strong>Release Date:</strong> {movie.release_date}
-          </p>
-          <p>
-            <strong>Rating:</strong> {formattedRating} ⭐
-          </p>
-          <p>
-            <strong>Duration:</strong> {movie.runtime} minutes
-          </p>
-          <p>
-            <strong>Language:</strong> {movie.original_language}
-          </p>
-          <p>
-            <strong>Production Countries:</strong> {productionCountries}
-          </p>
-          <p>
-            <strong>Budget:</strong> ${movie.budget.toLocaleString()}
-          </p>
-          <p>
-            <strong>Revenue:</strong> ${movie.revenue.toLocaleString()}
-          </p>
-        </div>
-      </div>
+      <Description movie={movie} />
     </div>
   );
 }

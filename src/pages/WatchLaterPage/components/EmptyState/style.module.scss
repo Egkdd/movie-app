@@ -1,0 +1,30 @@
+@use "../../../../App.scss" as *;
+
+.emptyState {
+    color: $txt-color;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    img {
+        width: 50%;
+        border-radius: $border-radius;
+    }
+}
+
+@media (min-width: $phone-size) and (max-width: $laptop-size) {
+    .emptyState {
+        p {
+            font-size: $p-laptop-size;
+        }
+    }
+}
+
+@media (min-width: $laptop-size) {
+    .emptyState {
+        p {
+            font-size: $p-monitor-size;
+        }
+    }
+}

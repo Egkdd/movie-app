@@ -4,14 +4,26 @@
     display: flex;
     flex-direction: column;
     justify-items: center;
-    align-content: center;
+    align-items: center;
     color: $txt-color;
     text-align: center;
     position: relative;
     padding: 0;
     margin: 0;
+    height: auto;
     &:hover {
         cursor: pointer;
+    }
+
+    img {
+        border-radius: $border-radius;
+        transition:
+            transform 0.3s ease,
+            outline 0.3s ease;
+        &:hover {
+            transform: scale(1.03);
+            outline: 0.01rem solid $main-dark-color;
+        }
     }
 
     .watchLaterButton {
@@ -32,38 +44,74 @@
         }
     }
 
-    a {
-        text-decoration: none;
-
-        img {
-            width: 14.5rem;
-            height: 23rem;
-            border-radius: $border-radius;
-            transition:
-                transform 0.3s ease,
-                outline 0.3s ease;
-            &:hover {
-                transform: scale(1.05);
-                outline: 5px solid $main-dark-color;
-            }
-        }
-    }
-
-    h3 {
-        margin: 0.5rem 0;
-        font-size: $medium-font-size;
-        text-align: center;
-        max-width: 14.5rem;
+    h2 {
+        margin-top: 0.5rem;
     }
 
     p {
-        margin: 0;
-        font-size: $small-font-size;
-        font-family: "LTVeritas";
-        &:first-of-type {
-            margin-top: 1rem;
-            font-weight: 600;
-            color: $rating-color;
+        margin-top: 0.3rem;
+    }
+}
+
+@media (max-width: $phone-size) and (orientation: portrait) {
+    .card {
+        img {
+            width: 7rem;
+        }
+
+        h2 {
+            font-size: $h2-phone-size;
+            margin-top: 0.3rem;
+        }
+
+        p {
+            font-size: $p-phone-size;
+        }
+    }
+}
+
+@media (min-width: $phone-size) and (max-width: $tablet-size) and (orientation: portrait) {
+    .card {
+        img {
+            width: 10rem;
+        }
+
+        h2 {
+            font-size: $h2-tablet-size;
+        }
+
+        p {
+            font-size: $p-tablet-size;
+        }
+    }
+}
+
+@media (min-width: $tablet-size) and (max-width: $laptop-size) {
+    .card {
+        img {
+            width: 12rem;
+        }
+        h2 {
+            font-size: $h2-laptop-size;
+        }
+        p {
+            font-size: $p-laptop-size;
+        }
+    }
+}
+
+@media (min-width: $laptop-size) {
+    .card {
+        img {
+            width: 14rem;
+        }
+
+        h2 {
+            font-size: $h2-monitor-size;
+        }
+
+        p {
+            font-size: $p-monitor-size;
         }
     }
 }

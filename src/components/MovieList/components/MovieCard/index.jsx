@@ -38,7 +38,7 @@ export default function MovieCard({ movie, onRemove }) {
   };
 
   const truncateTitle = (title) =>
-    title.length > 15 ? `${title.slice(0, 15)}...` : title;
+    title.length > 13 ? `${title.slice(0, 13)}...` : title;
 
   return (
     <div className={style.card}>
@@ -56,7 +56,7 @@ export default function MovieCard({ movie, onRemove }) {
         {isInWatchLater ? "❌" : "⏰"}
       </button>
       <div className={style.description}>
-        <h3>{truncateTitle(title)}</h3>
+        <h2>{truncateTitle(title)}</h2>
         <p>Rating: {formattedRating} ⭐</p>
         <p>Release Year: {formattedDate}</p>
         {duration ? (

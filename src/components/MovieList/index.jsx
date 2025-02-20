@@ -7,12 +7,14 @@ export default function MovieList({ movies, onRemove }) {
   }
 
   return (
-    <ul className={style.movieList}>
-      {movies.map((movie) => (
-        <li key={movie.id} className={style.movieItem}>
-          <MovieCard movie={movie} onRemove={onRemove} />
-        </li>
-      ))}
-    </ul>
+    <section className={style.movieListSection} aria-label="Movie List Section">
+      <ul className={style.movieList}>
+        {movies.map((movie) => (
+          <li key={movie.id} className={style.movieItem}>
+            <MovieCard movie={movie} onRemove={onRemove} />
+          </li>
+        ))}
+      </ul>
+    </section>
   );
 }

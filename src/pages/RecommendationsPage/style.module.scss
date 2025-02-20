@@ -1,18 +1,15 @@
 @use "../../App.scss" as *;
 
 .recommendationPage {
-    width: 90%;
-    margin: 0 auto;
-    color: $txt-color;
-    text-align: center;
-
     h1 {
-        font-size: $the-largest-font-size;
-        letter-spacing: 0.2rem;
+        margin-block: 1.5rem;
     }
+}
 
-    h2 {
-        font-size: $medium-font-size;
-        letter-spacing: 0.1rem;
+@media (max-width: $phone-size) and (orientation: portrait) {
+    .recommendationPage {
+        h1 {
+            font-size: $h1-phone-size - 2px;
+        }
     }
 }

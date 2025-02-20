@@ -1,6 +1,15 @@
 @use "../../App.scss" as *;
 
 .watchLaterPage {
-    width: 90%;
-    margin: 0 auto;
+    h1 {
+        margin-block: 1.5rem;
+    }
+}
+
+@media (max-width: $phone-size) and (orientation: portrait) {
+    .watchLaterPage {
+        h1 {
+            font-size: $h1-phone-size;
+        }
+    }
 }

@@ -1,6 +1,6 @@
-import { useState } from "react";
-import MovieList from "../../components/MovieList";
+import { useState, useEffect } from "react";
 import useMovies from "../../hooks/useMovies.jsx";
+import RenderSection from "./components/RenderSection";
 import style from "./style.module.scss";
 
 export default function Home() {
@@ -10,13 +10,31 @@ export default function Home() {
     topRated: 1,
     upcoming: 1,
   });
-  const itemsPerPage = 6;
 
-  const paginateMovies = (movieList, section) => {
-    const startIndex = (currentPage[section] - 1) * itemsPerPage;
-    const endIndex = startIndex + itemsPerPage;
-    return movieList.slice(startIndex, endIndex);
+  const getItemsPerPage = () => {
+    if (window.innerWidth <= 768) {
+      return 2;
+    } else if (window.innerWidth <= 1100) {
+      return 4;
+    } else if (window.innerWidth <= 1440) {
+      return 5;
+    } else {
+      return 6;
+    }
   };
+
+  const [itemsPerPage, setItemsPerPage] = useState(getItemsPerPage());
+
+  useEffect(() => {
+    const handleResize = () => {
+      setItemsPerPage(getItemsPerPage());
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   const handlePageChange = (section, direction) => {
     setCurrentPage((prev) => {
@@ -32,41 +50,37 @@ export default function Home() {
     });
   };
 
-  const renderSection = (title, movieList, section) => {
-    if (!movieList || movieList.length === 0) return null;
-
-    const paginatedMovies = paginateMovies(movieList, section);
-    const totalPages = Math.ceil(movieList.length / itemsPerPage);
-
-    return (
-      <div className={style.section} key={section}>
-        <h1>{title}</h1>
-        <div className={style.pagination}>
-          <button
-            className={style.arrowButton}
-            onClick={() => handlePageChange(section, -1)}
-            disabled={currentPage[section] === 1}
-          >
-            ←
-          </button>
-          <MovieList movies={paginatedMovies} />
-          <button
-            className={style.arrowButton}
-            onClick={() => handlePageChange(section, 1)}
-            disabled={currentPage[section] === totalPages}
-          >
-            →
-          </button>
-        </div>
-      </div>
-    );
-  };
+  const sections = [
+    {
+      title: "🍿 POPULAR MOVIES 🍿",
+      section: "popular",
+      movieList: movies.popular,
+    },
+    {
+      title: "✨ TOP RATED MOVIES ✨",
+      section: "topRated",
+      movieList: movies.topRated,
+    },
+    {
+      title: "👀 UPCOMING 👀",
+      section: "upcoming",
+      movieList: movies.upcoming,
+    },
+  ];
 
   return (
     <div className={style.home}>
-      {renderSection("🍿 POPULAR MOVIES 🍿", movies.popular, "popular")}
-      {renderSection("✨ TOP RATED MOVIES ✨", movies.topRated, "topRated")}
-      {renderSection("👀 UPCOMING 👀", movies.upcoming, "upcoming")}
+      {sections.map(({ title, section, movieList }) => (
+        <RenderSection
+          key={section}
+          title={title}
+          movieList={movieList}
+          section={section}
+          currentPage={currentPage}
+          handlePageChange={handlePageChange}
+          itemsPerPage={itemsPerPage}
+        />
+      ))}
     </div>
   );
 }

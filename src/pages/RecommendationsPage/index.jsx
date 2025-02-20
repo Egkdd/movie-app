@@ -7,15 +7,12 @@ export default function RecommendationPage() {
 
   return (
     <div className={style.recommendationPage}>
-      <h1>🎬 Movie Recommendations Just for You 🎬</h1>
-      <div className={style.section}>
-        <h2>🔥 Trending Movies 🔥</h2>
-        {trending && trending.length > 0 ? (
-          <MovieList movies={trending} />
-        ) : (
-          <p>No trending movies available</p>
-        )}
-      </div>
+      <h1>🎬 MOVIE RECOMMENDATIONS 🎬</h1>
+      {trending && trending.length > 0 ? (
+        <MovieList movies={trending} />
+      ) : (
+        <p>No trending movies available</p>
+      )}
     </div>
   );
 }

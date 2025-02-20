@@ -1,48 +1,83 @@
 @use "../../App.scss" as *;
 
 .search {
-  font-size: $medium-font-size;
-
-  .searchBox {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 0.5rem;
-  }
-
-  input,
-  select {
-    padding: 12px;
-    font-size: $small-font-size;
-    border: 1.5px solid var(--btn-color);
-    border-radius: $border-radius;
-    outline: none;
-    background-color: $txt-color;
-    width: 300px;
-    color: black;
-    &:focus {
-      border: 2px solid var(--btn-color);
-    }
-  }
-
-  button {
-    padding: 12px 20px;
-    font-size: $small-font-size;
-    border: none;
-    border-radius: $border-radius;
+    font-size: $p-monitor-size;
+    text-align: center;
     color: $txt-color;
-    cursor: pointer;
-    font-weight: bold;
-    &:hover {
-      transform: scale(1.05);
+    .searchBox {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-block: 2rem;
+        gap: 0.5rem;
     }
-  }
 
-  .searchButton {
-    background-color: $btn-color;
-  }
+    input,
+    select {
+        padding: 12px;
+        font-size: $p-tablet-size;
+        border: 1.5px solid var(--btn-color);
+        border-radius: $border-radius;
+        outline: none;
+        background-color: $txt-color;
+        width: 300px;
+        color: black;
+        &:focus {
+            border: 2px solid var(--btn-color);
+        }
+    }
 
-  .clearButton {
-    background-color: #b80f0a;
-  }
+    .actions {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0.5rem;
+        button {
+            padding: 12px 20px;
+            font-size: $p-tablet-size;
+            border: none;
+            border-radius: $border-radius;
+            color: $txt-color;
+            cursor: pointer;
+            font-weight: bold;
+            &:hover {
+                transform: scale(1.05);
+            }
+        }
+    }
+
+    .searchButton {
+        background-color: $btn-color;
+    }
+
+    .clearButton {
+        background-color: #b80f0a;
+    }
+}
+
+@media (max-width: $phone-size) and (orientation: portrait) {
+    .search {
+        font-size: $p-phone-size;
+        h1 {
+            font-size: $h1-phone-size;
+        }
+        .searchBox {
+            flex-direction: column;
+            margin-block: 1rem;
+        }
+
+        input,
+        select {
+            padding: 6px;
+            font-size: $p-phone-size;
+            width: 150px;
+        }
+
+        .actions {
+            button {
+                padding: 6px 10px;
+                font-size: $p-phone-size;
+            }
+        }
+    }
 }

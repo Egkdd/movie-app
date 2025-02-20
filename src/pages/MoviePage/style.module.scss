@@ -1,33 +1,52 @@
 @use "../../App.scss" as *;
 
 .moviePage {
-    margin: 0 auto;
-    width: 90%;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
-    gap: 5rem;
-    margin-top: 3%;
-
+    gap: 1rem;
+    margin: 0 auto;
+    margin-top: 2rem;
+    margin-inline: 5rem;
+    color: $txt-color;
     img {
         border-radius: $border-radius;
+        width: 100%;
     }
+}
 
-    .description {
-        display: flex;
+@media (max-width: $phone-size) and (orientation: portrait) {
+    .moviePage {
         flex-direction: column;
-        justify-content: space-around;
-        text-align: left;
-
-        h2 {
-            font-size: $the-largest-font-size;
-            text-shadow: 5px 5px 5px black;
+        gap: 1.5rem;
+        img {
+            width: 15rem;
         }
+    }
+}
 
-        p {
-            font-size: $medium-font-size;
-            font-family: "LTVeritas";
-            text-shadow: 3px 3px 3px black;
+@media (min-width: $phone-size) and (max-width: $tablet-size) and (orientation: portrait) {
+    .moviePage {
+        img {
+            width: 20rem;
+        }
+    }
+}
+
+@media (min-width: $tablet-size) and (max-width: $laptop-size) {
+    .moviePage {
+        justify-content: center;
+        img {
+            width: 20rem;
+        }
+    }
+}
+
+@media (min-width: $laptop-size) {
+    .moviePage {
+        justify-content: center;
+        img {
+            width: 25rem;
         }
     }
 }

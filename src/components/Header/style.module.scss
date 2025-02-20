@@ -1,99 +1,104 @@
 @use "../../App.scss" as *;
-//@use "../../../breakpoints/breakpoints.scss" as *;
 
 .header {
-    width: 90%;
-    height: 5rem;
     background-color: $main-dark-color;
-    border-radius: 0 0 $border-radius $border-radius;
-    margin: 0 auto;
+    color: $txt-color;
+    width: 95%;
+    height: 4rem;
     display: flex;
-    align-items: center;
     justify-content: space-between;
-
+    align-items: center;
+    margin: 0 auto;
+    border-radius: 0 0 $border-radius $border-radius;
     .logo a {
-        margin-left: 2rem;
         display: flex;
+        justify-content: space-around;
         align-items: center;
+        padding-left: 1rem;
         gap: 1rem;
         text-decoration: none;
-
         img {
-            width: 3rem;
-            height: 3rem;
+            width: 2.5rem;
         }
-
         h1 {
-            color: $txt-color;
-            font-size: $large-font-size;
             font-style: italic;
+            color: $txt-color;
+            margin: 0;
+            text-shadow: 1px 1px 1px black;
         }
     }
-
     .navigation {
         list-style: none;
         display: flex;
-        justify-content: center;
-        color: $txt-color;
-        font-size: $small-font-size;
-        gap: 1.5rem;
-        margin-right: 2rem;
-
+        justify-content: end;
+        align-items: center;
+        gap: 1rem;
+        padding: 0;
+        margin: 0;
+        margin-right: 1rem;
         li a {
             text-decoration: none;
+            color: $txt-color;
             border: 1.5px solid $txt-color;
             border-radius: $border-radius;
-            padding: 12px 20px;
-            color: $txt-color;
+            font-family: $p-laptop-size;
+            padding: 0.6rem;
             &:hover {
                 cursor: pointer;
                 background-color: $txt-color;
                 color: $main-dark-color;
-                transform: scale(1.1);
+                transform: scale(1.05);
                 font-weight: 600;
             }
         }
     }
-    // @include media(">phone", "<=425px") {
-    //     height: 10rem;
-    //     justify-content: center;
-    //     gap: 2rem;
-    //     img {
-    //         padding-left: 2rem;
-    //     }
-    //     h1 {
-    //         display: none;
-    //     }
-    //     .navigation {
-    //         flex-direction: column;
-    //         justify-content: space-around;
-    //         gap: 0.8rem;
-    //         li a {
-    //             border: 1px solid $txt-color;
-    //             padding: 0.1rem 1rem;
-    //             margin-left: -2rem;
-    //         }
-    //     }
-    // }
-    // @include media(">425px", "<=tablet") {
-    //     justify-content: space-between;
-    //     h1 {
-    //         display: none;
-    //     }
-    //     .navigation {
-    //         gap: 0.4rem;
-    //         li a {
-    //             border: 1px solid $txt-color;
-    //             padding: 0.5rem;
-    //         }
-    //     }
-    // }
-    // @include media(">tablet", "<desktop") {
-    //     img {
-    //         padding-left: 2rem;
-    //     }
-    //     h1 {
-    //         display: none;
-    //     }
-    // }
+}
+
+@media (max-width: $phone-size) and (orientation: portrait) {
+    .header {
+        width: 100%;
+        border-radius: 0;
+        .logo a {
+            h1 {
+                display: none;
+            }
+        }
+        .navigation {
+            li a {
+                font-size: $p-phone-size;
+                padding: 0.5rem;
+            }
+        }
+    }
+}
+
+@media (min-width: $phone-size) and (max-width: $tablet-size) and (orientation: portrait) {
+    .header {
+        .navigation {
+            li a {
+                font-size: $p-tablet-size;
+            }
+        }
+    }
+}
+
+@media (min-width: $tablet-size) and (max-width: $laptop-size) {
+    .header {
+        .navigation {
+            li a {
+                font-size: $p-laptop-size;
+            }
+        }
+    }
+}
+
+@media (min-width: $laptop-size) {
+    .header {
+        max-width: 100rem;
+        .navigation {
+            li a {
+                font-size: $p-laptop-size;
+            }
+        }
+    }
 }

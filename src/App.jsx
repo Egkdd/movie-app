@@ -9,6 +9,7 @@ import {
 } from "./components";
 import { Routes, Route } from "react-router-dom";
 import { MovieProvider } from "./context/MovieContext.jsx";
+import "./App.scss";
 
 function App() {
   return (
